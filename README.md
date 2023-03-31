@@ -1,2 +1,2 @@
-# Python Rasterio Normallestirilmis Fark Endeksi Hesaplama Kodu
+# Python Rasterio Normalleştirilmiş Fark Endeksi Hesaplama Kodu
  
