@@ -20,11 +20,9 @@ normalizedDifference = ((firstBand - secondBand) / (firstBand + secondBand))
 
 # Hesaplanan Endeks görüntüsünün belirtilen konuma kaydedilmesi
 profile = image.profile
-profile.update(nodata=0, compress="lzw", count=1)
-with rasterio.open("../Images/normalizedDifference.tif",
-                   mode="w",
-                   **profile, ) as update_dataset:
-    update_dataset.write(image.read(1), 1)
+profile.update(nodata=0, count=1, dtype=rasterio.float64)
+with rasterio.open('../Images/normalizedDifference.tif', 'w', **profile) as dst:
+    dst.write(normalizedDifference.astype(rasterio.float64), 1)
 
 # Endeks görüntüsünün görselleştirilmesi
 show(normalizedDifference, cmap="Spectral")
